@@ -19,6 +19,13 @@ describe 'Movie Rental' do
         Amount owed is 6
         You earned 2 frequent renter points
       END
+
+      expect(customer.html_statement).to eq <<~END.strip
+        <h1>Rentals for <em>Adam</em></h1><p>
+        	Captain Marvel: 6<br>
+        <p>You owe <em>6</em></p>
+        On this rental you earned <em>2</em> frequent renter points</p>
+      END
     end
 
     it 'for childrens' do
@@ -30,6 +37,14 @@ describe 'Movie Rental' do
         	Wreck it Ralph	1.5
         Amount owed is 7.5
         You earned 3 frequent renter points
+      END
+
+      expect(customer.html_statement).to eq <<~END.strip
+        <h1>Rentals for <em>Adam</em></h1><p>
+        	Captain Marvel: 6<br>
+        	Wreck it Ralph: 1.5<br>
+        <p>You owe <em>7.5</em></p>
+        On this rental you earned <em>3</em> frequent renter points</p>
       END
     end
 
@@ -43,6 +58,15 @@ describe 'Movie Rental' do
         	Star Wars Episode X	14.0
         Amount owed is 21.5
         You earned 4 frequent renter points
+      END
+
+      expect(customer.html_statement).to eq <<~END.strip
+        <h1>Rentals for <em>Adam</em></h1><p>
+        	Captain Marvel: 6<br>
+        	Wreck it Ralph: 1.5<br>
+        	Star Wars Episode X: 14.0<br>
+        <p>You owe <em>21.5</em></p>
+        On this rental you earned <em>4</em> frequent renter points</p>
       END
     end
   end
