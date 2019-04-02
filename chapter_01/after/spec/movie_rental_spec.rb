@@ -4,9 +4,9 @@ require_relative '../rental'
 
 describe 'Movie Rental' do
   context 'prints out customer statement' do
-    movie_1 = Movie.new('Captain Marvel', Movie::NEW_RELEASE)
-    movie_2 = Movie.new('Wreck it Ralph', Movie::CHILDRENS)
-    movie_3 = Movie.new('Star Wars Episode X', Movie::REGULAR)
+    movie_1 = Movie.new('Captain Marvel', NewReleasePrice.new)
+    movie_2 = Movie.new('Wreck it Ralph', ChildrensPrice.new)
+    movie_3 = Movie.new('Star Wars Episode X', RegularPrice.new)
 
     customer = Customer.new('Adam')
 
