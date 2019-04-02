@@ -1,12 +1,8 @@
 class Movie
-  REGULAR = 0
-  NEW_RELEASE = 1
-  CHILDRENS = 2
-
   attr_reader :title
 
   def initialize(title, price_code)
-    @title, @price = title, price_code
+    @title, @price = title, Object.const_get(price_code).new
   end
 
   def frequent_renter_points(days_rented)
